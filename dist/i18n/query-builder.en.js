@@ -25,8 +25,12 @@ QueryBuilder.regional['en'] = {
   "delete_rule": "Delete",
   "delete_group": "Delete",
   "conditions": {
-    "AND": "AND",
-    "OR": "OR"
+    "AND": "ALL",
+    "OR": "ANY"
+  },
+  "collection": {
+    "USERS": "USERS",
+    "CUSTOMERS": "CUSTOMERS"
   },
   "operators": {
     "equal": "equal",
