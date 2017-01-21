@@ -2,8 +2,8 @@ QueryBuilder.templates.group = '\
 <dl id="{{= it.group_id }}" class="rules-group-container"> \
   <dt class="rules-group-header"> \
     <div class="btn-group pull-right group-actions"> \
-      <button type="button" class="btn btn-xs btn-success" data-add="rule"> \
-        <i class="{{= it.icons.add_rule }}"></i> {{= it.lang.add_rule }} \
+      <button type="button" class="btn btn-xs add-rule-styling" data-add="rule">\
+        <span class="add-rule-text">{{= it.lang.add_rule }}</span> \
       </button> \
       {{? it.settings.allow_groups===-1 || it.settings.allow_groups>=it.level }} \
         <button type="button" class="btn btn-xs btn-success" data-add="group"> \
@@ -18,13 +18,17 @@ QueryBuilder.templates.group = '\
     </div> \
     <div class="btn-group group-conditions"> \
       {{~ it.conditions: condition }} \
-        <label class="btn btn-xs btn-primary"> \
+        <label class="btn btn-xs btn-primary strive"> \
           <input type="radio" name="{{= it.group_id }}_cond" value="{{= condition }}"> {{= it.lang.conditions[condition] || condition }} \
         </label> \
       {{~}} \
     </div> \
+    <select class="form-control collection-type-switcher" name="qb_19926_rule_0_filter">   \
+        <option value="-1">USERS</option>  \
+    </select> \
+    <span class="filter-explanation">that match:</span>\
     {{? it.settings.display_errors }} \
-      <div class="error-container"><i class="{{= it.icons.error }}"></i></div> \
+      <div class="error-container"><i class="{{= it.icons.error }}" style="display:none;"></i></div> \
     {{?}} \
   </dt> \
   <dd class=rules-group-body> \
@@ -34,19 +38,12 @@ QueryBuilder.templates.group = '\
 
 QueryBuilder.templates.rule = '\
 <li id="{{= it.rule_id }}" class="rule-container"> \
-  <div class="rule-header"> \
-    <div class="btn-group pull-right rule-actions"> \
-      <button type="button" class="btn btn-xs btn-danger" data-delete="rule"> \
-        <i class="{{= it.icons.remove_rule }}"></i> {{= it.lang.delete_rule }} \
-      </button> \
-    </div> \
-  </div> \
-  {{? it.settings.display_errors }} \
-    <div class="error-container"><i class="{{= it.icons.error }}"></i></div> \
-  {{?}} \
   <div class="rule-filter-container"></div> \
   <div class="rule-operator-container"></div> \
   <div class="rule-value-container"></div> \
+  <button type="button" class="btn btn-xs delete-rule-styling" data-delete="rule">\
+  <i class="material-icons md-12">close</i>   \
+  </button> \
 </li>';
 
 QueryBuilder.templates.filterSelect = '\
